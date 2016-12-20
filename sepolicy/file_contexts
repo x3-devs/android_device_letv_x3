@@ -482,3 +482,13 @@
 
 #fat on nand image
 /fat(/.*)?  u:object_r:fon_image_data_file:s0
+
+# Fingerprint
+/data/system/users/[0-9]+/fpdata(/.*)? u:object_r:fingerprintd_data_file:s0
+# /data/system/fingerprint(/.*)?  u:object_r:_data_file:s0 
+# /dev/gf66xx-spi u:object_r:goodixfingerprintd_device:s0 
+# /dev/goodix_fp* u:object_r:goodixfingerprintd_device:s0 
+/dev/ttyACM[0-9]* u:object_r:goodixfingerprintd_device:s0 
+/persist/data/gxfp(/.*)?  u:object_r:goodixfingerprintd_data_file:s0
+/dev/goodix_fp                 u:object_r:goodixfingerprintd_device:s0
+/system/bin/goodixfingerprintd u:object_r:goodixfingerprintd_exec:s0

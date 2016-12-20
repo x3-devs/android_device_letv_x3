@@ -206,3 +206,8 @@ type fuseblk,sdcard_type,fs_type,mlstrustedobject;
 #ipoh data file
 type ipoh_data_file, file_type, data_file_type;
 
+# fingerprint data file
+type fingerprintd_data_file, file_type, data_file_type;
+
+# goodix data file
+type goodixfingerprintd_data_file, file_type, data_file_type;

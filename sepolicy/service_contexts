@@ -42,3 +42,7 @@ media.VTS           u:object_r:vtservice_service:s0
 GpuAppSpectatorService  u:object_r:gas_srv_service:s0
 hotknotnativeservice    u:object_r:hotknot_native_service:s0
 wfo                 u:object_r:radio_service:s0
+
+# Goodix services
+android.hardware.fingerprint.IGoodixFingerprintDaemon u:object_r:goodixfingerprintd_service:s0
+com.goodix.FingerprintService u:object_r:goodix_fingerprint_service:s0

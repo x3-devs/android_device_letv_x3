@@ -211,3 +211,6 @@ type fingerprintd_data_file, file_type, data_file_type;
 
 # goodix data file
 type goodixfingerprintd_data_file, file_type, data_file_type;
+
+# Goodix library files
+type goodixfingerprintd_lib_file, file_type, data_file_type;

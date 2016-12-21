@@ -17,12 +17,12 @@ Camera  | Primary: 13 MP, Secondary: 5 MP
 
 ![LeEco Le1S](http://cdn2.gsmarena.com/vv/pics/leeco/letv-le-1s-1.jpg "LeEco Le1S")
 
-LinearOS is Rebranded CyanogenMod. We have used the name with long-term application, and for #Lulz
+LineageOS is Rebranded CyanogenMod. We have used the name with long-term application, and for #Lulz
 ## Copyright
 
 ```
 #
-# Copyright (C) 2017 The LinearOS Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

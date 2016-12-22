@@ -509,7 +509,7 @@
 /system/lib64/libgf_algo.so  u:object_r:goodixfingerprintd_lib_file:s0
 /system/lib/libgf_algo.so  u:object_r:goodixfingerprintd_lib_file:s0
 /system/lib/libgf_hal.so   u:object_r:goodixfingerprintd_lib_file:s0
-/system/lib64/libgoodixfingerprintd_binder.sou:object_r:goodixfingerprintd_lib_file:s0
+/system/lib64/libgoodixfingerprintd_binder.so  u:object_r:goodixfingerprintd_lib_file:s0
 /system/lib/libgoodixfingerprintd_binder.so  u:object_r:goodixfingerprintd_lib_file:s0
 
 # Executable binary of goodix

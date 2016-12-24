@@ -203,11 +203,17 @@ type fuseblk,sdcard_type,fs_type,mlstrustedobject;
 # debuggerd mrdump allocfile
 #type debuggerd_data_file, file_type, data_file_type;
 
+# TEEI data file
+type teei_data_file, file_type, data_file_type;
 #ipoh data file
 type ipoh_data_file, file_type, data_file_type;
 
-# fingerprint data file
-type fingerprintd_data_file, file_type, data_file_type;
+# Mohancm:Banglore on:  25/12/2016
+# added for goodix fp
+# Type for Goodix fingerprint template file.
+type gx_fpd_lib_file, data_file_type;
+type gx_fp_lib_file, data_file_type;
+#type gx_fpd_data_file, file_type, data_file_type;
+type gx_fpd_data_file, data_file_type;
+# End of Mohancm: Banglore
 
-# goodix data file
-type goodixfingerprintd_data_file, file_type, data_file_type;

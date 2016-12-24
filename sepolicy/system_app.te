@@ -181,3 +181,10 @@ allow system_app thermal_manager_data_file:dir { search getattr open read write 
 # Stage: Migration
 # Purpose: [HotKnot] Allow HotKnot service to start/stop hotknot_native_service
 allow system_app hotknot_prop:property_service set;
+
+# Date : 25/12/2016
+# Operation: TEEI integration
+# Purpose: access for fp device and client device of TEEI
+# Package: teei
+allow system_app teei_fp_device:chr_file rw_file_perms;
+allow system_app teei_client_device:chr_file r_file_perms;

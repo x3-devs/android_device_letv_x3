@@ -21,6 +21,8 @@ LOCAL_PATH := device/letv/x3
 include $(LOCAL_PATH)/PlatformConfig.mk
 include $(LOCAL_PATH)/board/*.mk
 
+PROPRIETARY_VENDOR_PATH := vendor/letv/x3/proprietary 
+
 # Device vendor board
 -include vendor/letv/x3/BoardConfigVendor.mk
 
@@ -34,7 +36,7 @@ COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
 # EGL
-BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
+BOARD_EGL_CFG :=  vendor/letv/x3/proprietary/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 

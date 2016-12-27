@@ -775,3 +775,21 @@ vendor/media/LMspeed_508.emd
 vendor/media/PFFprec_600.emd
 xbin/BGW
 xbin/mnld
+
+# Product proprietary
+etc/agps_profiles_conf2.xml
+etc/apns-conf.xml
+etc/audio_device.xml
+etc/audio_effects.conf
+etc/audio_policy.conf
+etc/hk_ecc_list.xml
+etc/india_ecc_list.xml
+etc/media_codecs.xml
+etc/media_codecs_mediatek_audio.xml
+etc/media_codecs_mediatek_video.xml
+etc/media_codecs_mediatek_video_mt6795mm.xml
+etc/media_codecs_mt6795mm.xml
+etc/media_codecs_performance.xml
+etc/permissions/android.hardware.microphone.xml
+etc/spn-conf.xml
+etc/thailand_ecc_list.xml

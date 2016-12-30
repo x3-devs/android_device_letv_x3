@@ -1,8 +1,6 @@
 # MTK project .rc configure
 
 import init.mt6795.usb.rc
-import init.modem.rc
-import init.trustonic.rc
 
 on init
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
@@ -70,7 +68,6 @@ on post-fs-data
     chmod 0660 /dev/DW9714AF
     chown system camera /dev/DW9714AF
     
-
     chmod 0660 /dev/AD5820AF
     chown system camera /dev/AD5820AF
     
@@ -112,10 +109,6 @@ on post-fs-data
     chown gps gps /sys/class/gpsdrv/gps/status
 #    chmod 0660 /dev/stpgps
 
-# Add Wake Gestures
-    chown system system /sys/bus/i2c/devices/i2c-2/2-004b/wake_gesture_enable
-    chmod 0644 /sys/bus/i2c/devices/i2c-2/2-004b/wake_gesture_enable
-
 # WiFi
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -134,7 +127,6 @@ on post-fs-data
     mknod /dev/ampc0 c 151 0
     chown bluetooth bluetooth /dev/ampc0
     chmod 0660 /dev/ampc0
-
 
 #
 # Connectivity related device nodes & configuration (end)
@@ -183,6 +175,30 @@ service stp_dump /system/bin/stp_dump3
 	disabled
 	oneshot
 
+#
+# Connectivity related services (End)
+#
+on post-fs-data
+    mkdir /data/tinyproxy 0777
+    mkdir /data/local 0777
+    mkdir /data/local/tmp 0777
+    mkdir /data/local/tmp/tinyproxy 0777
+    mkdir /data/fastplay 0777 system system
+
+service tinyproxy /system/bin/tinyproxy
+    class main
+    user root
+    socket letvbackup stream 0666 system system
+    group system system
+    disabled
+    oneshot
+
+on property:service.tinyproxy.enable=0
+    stop tinyproxy
+
+on property:service.tinyproxy.enable=1
+    start tinyproxy
+
 # add by letv for reduced power rate when normal charge be selected begin
 on property:persist.sys.le_fast_chrg_enable=1
     write /sys/class/power_supply/bq2589x-Wall/disable_quick_charge 0
@@ -201,4 +217,3 @@ service fingerprintd /system/bin/fingerprintd
     user system
     group system
 # goodix fingerprint end
-

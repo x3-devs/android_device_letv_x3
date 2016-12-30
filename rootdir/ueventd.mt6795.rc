@@ -71,11 +71,11 @@
 /dev/ccci_aud             0660   audio      audio
 /dev/ccci2_aud            0660   audio      audio
 /dev/eemcs_aud            0660   audio      audio
-/dev/irtx                 0660   system     system
 
 # SGX device node
 /dev/pvrsrvkm             0666   root       root
 /dev/pvr_sync             0666   root       root
+
 
 /sys/devices/platform/leds-mt65xx/leds/green   delay_on      0664  system   system
 /sys/devices/platform/leds-mt65xx/leds/green   delay_off      0664  system   system
@@ -86,6 +86,7 @@
 
 #GPIO
 /dev/mtgpio               0600   radio      root
+
 
 #FOR VIA MODEM
 /dev/ttySDIO*             0660   radio      sdcard_rw
@@ -107,13 +108,3 @@
 
 #MTK In-House TEE
 /dev/ttyACM0              0660   radio      radio
-
-#Add Wake Gestures @Bule 20161119
-/sys/android_touch/*       0664  system   system
-
-#Add Fingerprint @Bule 20161119
-/dev/goodix_fp              0660   root       system
-
-#Add Wake Gestures @Bule 20161123
-/sys/bus/i2c/devices/i2c-2/2-004b/*       0664  system   system
-

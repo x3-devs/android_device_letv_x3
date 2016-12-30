@@ -12,7 +12,7 @@ service mal-daemon /system/bin/mtkmal
     class core
     socket mal-mfi stream 660 root radio
     socket volte_imsm stream 660 root radio
-    user radio
+    user root
     group radio cache inet misc log system wifi
 
 #

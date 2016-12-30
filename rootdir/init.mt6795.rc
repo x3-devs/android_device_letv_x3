@@ -1,15 +1,17 @@
 # MTK platform .rc configure
 
 import init.project.rc
+import /FWUpgradeInit.rc
 import init.xlog.rc
 import init.aee.rc
+import init.fon.rc
 import init.volte.rc
 import init.mal.rc
-import init.ssd.rc
-import init.modem.rc	
+import init.trustonic.rc
+import init.common_svc.rc
 
 # init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
-# import init.modem.rc
+import init.modem.rc
 # *** DO NOT import the new rc file after this line ***
 
 on early-init
@@ -31,7 +33,6 @@ on init
     chmod 0664 /proc/mtk_battery_cmd/discharging_cmd
     chmod 0664 /proc/mtk_battery_cmd/battery_cmd
 
-    export USBOTG_STORAGE /storage/usbotg
     mkdir /protect_f 0771 system system
     mkdir /protect_s 0771 system system
     mkdir /system
@@ -53,10 +54,6 @@ on init
 # change lk_env permission
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
-
-#usbotg
-    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
-    mkdir /storage/usbotg 0700 root root
 
 # increase sysctl_rmem_max and sysctl_wmem_max values to 2M
     write /proc/sys/net/core/wmem_max 2097152
@@ -160,10 +157,12 @@ on post-fs-data
     mkdir /data/nvram 0771 root system
     mkdir /data/nvram/media 0771 media audio
 
-    # mxg2320
-    mkdir /data/mxg2320 0770 root system
-    # mmc3524x
-    mkdir /data/mmc3524x 0770 root system
+	# mxg2320
+	mkdir /data/mxg2320 0770 root system
+
+	# mmc3524x
+	mkdir /data/mmc3524x 0770 root system
+
     chmod 0660 /data/misc/wifi/p2p_supplicant.conf
 
     #give system access to rfkill device node
@@ -484,6 +483,8 @@ on post-fs-data
     chmod 0660 /dev/CAM_CAL_DRV_OFILM
     chmod 0660 /dev/CAM_CAL_DRV_3L8
     chmod 0660 /dev/CAM_CAL_DRV_3L9
+
+
     chmod 0660 /dev/LC898122AF
     chmod 0660 /dev/LC898122OFILMAF
     chmod 0660 /dev/BU6429AF
@@ -502,6 +503,7 @@ on post-fs-data
     chown system camera /dev/CAM_CAL_DRV_OFILM
     chown system camera /dev/CAM_CAL_DRV_3L8
     chown system camera /dev/CAM_CAL_DRV_3L9
+
     chown system camera /dev/LC898122AF
     chown system camera /dev/LC898122OFILMAF
     chown system camera /dev/BU6429AF
@@ -762,6 +764,7 @@ on property:vold.decrypt=trigger_restart_framework
     start start_modem
     start msensord
     start permission_check
+    start leuirecovery
     write /proc/bootprof "trigger_restart_framework"
 		
 on property:vold.decrypt=trigger_shutdown_framework
@@ -844,6 +847,22 @@ service nvram_daemon /system/bin/nvram_daemon
     user root
     group system
     oneshot
+
+#nvram_write start 
+service nvram_write /system/bin/nvram_write
+    class main
+    user root
+    oneshot
+#nvram_write end 
+
+service sys_reboot_write /system/bin/sys_reboot_write
+    class main
+    user root
+    disabled
+    oneshot
+
+on property:sys.server.killed=true
+    start sys_reboot_write
 
 service atci_service /system/bin/atci_service
     class core
@@ -1185,9 +1204,9 @@ service emdlogger6 /system/bin/emdlogger6
 #sensor service (begin)
 #
 
-service msensord /system/bin/msensord
-    class main
-    oneshot
+#service msensord /system/bin/msensord
+    #class main
+    #oneshot
 
 service s62xd /system/bin/s62xd
     disabled
@@ -1201,10 +1220,11 @@ service ami304d /system/bin/ami304d
     class main
 
 service memsicd /system/bin/memsicd
-    disabled
+    #disabled
     user system
     group system
     class main
+    #oneshot
 
 service memsicd3416x /system/bin/memsicd3416x
     disabled
@@ -1229,6 +1249,7 @@ service akmd09911 /system/bin/akmd09911
     user system
     group system
     class main
+
 service mxg2320d /system/bin/mxg2320d
     user system
     group system
@@ -1397,3 +1418,20 @@ service program_binary /system/bin/program_binary_service
     user system
     group graphics
     oneshot
+
+# leeco add leuirecovery
+service leuirecovery /system/bin/leuirecovery
+    class main
+    user root system
+    group root system sdcard_rw media_rw
+    disabled
+    oneshot
+
+# Begin Lebugreport
+service Lebugreport /system/bin/dumpstate -d -L -q \
+    -o /data/data/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
+# End Lebugreport
+

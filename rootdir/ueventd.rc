@@ -28,7 +28,7 @@ subsystem adf
 /dev/dri/*                0666   root       graphics
 
 # these should not be world writable
-/dev/diag                 0660   system     qcom_diag
+/dev/diag                 0660   radio      radio
 /dev/diag_arm9            0660   radio      radio
 /dev/android_adb          0660   adb        adb
 /dev/android_adb_enable   0660   adb        adb
@@ -99,3 +99,11 @@ subsystem adf
 # DVB API device nodes
 /dev/dvb*                 0660   root       system
 
+#Add Wake Gestures @Bule 20161119
+/sys/android_touch/*       0664  system   system
+
+#Add Fingerprint @Bule 20161119
+/dev/goodix_fp              0660   root       system
+
+#Add Wake Gestures @Bule 20161123
+/sys/bus/i2c/devices/i2c-2/2-004b/*       0664  system   system

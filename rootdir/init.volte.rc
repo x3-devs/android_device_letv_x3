@@ -51,3 +51,9 @@ service volte_imcb /system/bin/volte_imcb
 #
 # VoLTE related services (End)
 #
+#backup recover service
+service transfer /system/bin/tr_app_data_service
+    class main
+    socket transfer stream 0660 root sdcard_rw
+    user root
+

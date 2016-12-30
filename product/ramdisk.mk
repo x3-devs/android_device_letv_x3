@@ -21,4 +21,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/factory_init.project.rc:root/factory_init.project.rc \
     $(LOCAL_PATH)/rootdir/init.usb.configfs.rc:root/init.usb.configfs.rc \
     $(LOCAL_PATH)/rootdir/meta_init.rc:root/meta_init.rc \
-    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc
+    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc \
+    $(LOCAL_PATH)/rootdir/init.aee.rc:root/init.aee.rc \
+    $(LOCAL_PATH)/rootdir/init.epdg.rc:root/init.epdg.rc \
+    $(LOCAL_PATH)/rootdir/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/rootdir/init.trustonic.rc:root/init.trustonic.rc
+

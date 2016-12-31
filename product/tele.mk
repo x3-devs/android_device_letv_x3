@@ -8,3 +8,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Messaging
 PRODUCT_PACKAGES += \
     messaging
+
+# Include IMSEnabler
+PRODUCT_PACKAGES += \
+    IMSEnabler

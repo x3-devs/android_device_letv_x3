@@ -1,3 +1,4 @@
 # RIL
 BOARD_RIL_ClASS := ($LOCAL_PATH)/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
+BOARD_RIL_CLASS := device/letv/x3/ril

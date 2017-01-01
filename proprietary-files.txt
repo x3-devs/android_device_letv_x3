@@ -1,4 +1,5 @@
 app/GFManager/GFManager.apk
+priv-app/ImsManager/ImsManager.apk
 app/MTKLogger/MTKLogger.apk
 app/YGPS/YGPS.apk
 bin/6620_launcher

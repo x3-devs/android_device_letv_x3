@@ -26,6 +26,9 @@ PROPRIETARY_VENDOR_PATH := vendor/letv/x3/proprietary
 # Device vendor board
 -include vendor/letv/x3/BoardConfigVendor.mk
 
+MTK_PROJECT_CONFIG ?= $(DEVICE_PATH)/ProjectConfig.mk
+include $(MTK_PROJECT_CONFIG)
+
 #######################################################################
 
 # Kernel
